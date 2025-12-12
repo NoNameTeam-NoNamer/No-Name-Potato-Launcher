@@ -36,43 +36,41 @@
             </NavigationView.Resources>
             <NavigationView.MenuItems>
 
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Home" Content="主页"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="启动">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEDB5;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
                 <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="功能"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="People" Content="点名"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="考试">
+                <NavigationViewItemHeader Content="管理"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="AllApps" Content="插件"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="数据包">
                     <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEA8F;"/>
+                        <FontIcon Glyph="&#xF012;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="倒计时">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEC92;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Contact2" Content="抽签"/>
-
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="More" Content="更多"/>
-
                 <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="网页"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Globe" Content="天眼地图"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="元素周期表">
+                <NavigationViewItemHeader Content="编辑器"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="World" Content="多世界"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="ViewAll" Content="容器菜单"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="权限管理">
                     <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xF0E2;"/>
+                        <FontIcon Glyph="&#xE902;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="翻译">
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="彩字">
                     <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xF2B7;"/>
+                        <FontIcon Glyph="&#xE790;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-
-                <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="系统"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Help" Content="帮助"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="PostUpdate" Content="版本"/>
             </NavigationView.MenuItems>
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.VersionPage" Content="关于">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE946;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
 
             <ScrollViewer>
                 <Frame x:Name="ContentFrame" IsTabStop="True"

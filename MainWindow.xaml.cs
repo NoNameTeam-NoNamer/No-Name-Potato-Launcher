@@ -131,6 +131,8 @@ namespace No_Name_Potato_Launcher
             {
                 // Select the nav view item that corresponds to the page being navigated to.
                 var selectedItem = NavView.MenuItems
+        .Cast<object>()
+        .Concat(NavView.FooterMenuItems.Cast<object>())
         .OfType<NavigationViewItem>()
         .FirstOrDefault(i => i.Tag != null && i.Tag.Equals(ContentFrame.SourcePageType.FullName));
 
