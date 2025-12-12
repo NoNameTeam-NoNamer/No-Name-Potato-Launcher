@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "No Name Potato Launcher (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "No Name Potato Launcher (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

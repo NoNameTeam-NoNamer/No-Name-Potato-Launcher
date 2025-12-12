@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="No_Name_Potato_Launcher.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:No_Name_Potato_Launcher"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel x:Name="AppTitleBar" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image Source="/Assets/potato.png" Height="24"/>
+            <TextBlock x:Name="AppTitleTextBlock" Text="某个不想起名的土豆烘烤器"
+       TextWrapping="NoWrap"
+       Style="{StaticResource BodyStrongTextBlockStyle}"  
+       VerticalAlignment="Center"
+       Margin="12,0"/>
+        </StackPanel>
+        <NavigationView x:Name="NavView"
+ Loaded="NavView_Loaded"
+ ItemInvoked="NavView_ItemInvoked"
+ IsSettingsVisible="True"
+ IsBackEnabled="True"
+ IsBackButtonVisible="Collapsed"
+ AlwaysShowHeader="True"
+ PaneDisplayMode="Auto"
+ CompactModeThresholdWidth="0"
+                    BorderBrush="Transparent"
+                    BorderThickness="0" 
+ ExpandedModeThresholdWidth="1000"
+ SelectionFollowsFocus="Disabled"
+ IsTabStop="False">
+            <NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent" />
+                <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent" />
+            </NavigationView.Resources>
+            <NavigationView.MenuItems>
+
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Home" Content="主页"/>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader Content="功能"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="People" Content="点名"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="考试">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEA8F;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="倒计时">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEC92;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Contact2" Content="抽签"/>
+
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="More" Content="更多"/>
+
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader Content="网页"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Globe" Content="天眼地图"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="元素周期表">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF0E2;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="翻译">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF2B7;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader Content="系统"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="Help" Content="帮助"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="PostUpdate" Content="版本"/>
+            </NavigationView.MenuItems>
+
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" IsTabStop="True"
+NavigationFailed="ContentFrame_NavigationFailed"/>
+            </ScrollViewer>
+        </NavigationView>
+    </Grid>
+</Window>
