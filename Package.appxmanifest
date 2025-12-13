@@ -10,13 +10,13 @@
   <Identity
     Name="dca10e27-4c82-48bc-94d3-0d8dd60a75e4"
     Publisher="CN=Administrator"
-    Version="0.1.0.0" />
+    Version="0.0.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="dca10e27-4c82-48bc-94d3-0d8dd60a75e4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>No Name Potato Launcher</DisplayName>
-    <PublisherDisplayName>Administrator</PublisherDisplayName>
+    <PublisherDisplayName>某个不想起名的人，另一个不想起名的人</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -35,13 +35,18 @@
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
         DisplayName="No Name Potato Launcher"
-        Description="No Name Potato Launcher"
+        Description="某个不想起名的土豆启动器，启动和管理您的MC服务器的捷径！\nNo Name Potato Launcher,A easier way to launch and manage your Minecraft server!"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"  Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
         <uap:LockScreen BadgeLogo="Assets\BadgeLogo.png" Notification="badgeAndTileText"/>
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/>
+          <uap:Rotation Preference="portrait"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

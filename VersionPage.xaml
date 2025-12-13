@@ -6,9 +6,87 @@
     xmlns:local="using:No_Name_Potato_Launcher"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Grid>
-
+        <StackPanel VerticalAlignment="Center" Margin="36,24">
+            <TextBlock HorizontalAlignment="Center" Text="当前版本：α0.0.4" FontSize="24" Margin="6"/>
+            <TextBlock HorizontalAlignment="Center">
+        <Run FontFamily="楷体" Foreground="DarkGray">
+        系统开发中，若发现BUG请及时反馈！</Run>
+        <LineBreak/>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center">
+        <Run FontFamily="楷体" Foreground="DarkGray">
+        ©No Name Team 2025,all rights reserved.</Run>
+        <LineBreak/>
+            </TextBlock>
+            <Expander Header="开发人员和鸣谢名单" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500">
+                <ScrollViewer MaxHeight="200" MinHeight="50" Width="450">
+                    <TextBlock HorizontalAlignment="Center" TextAlignment="Center">
+                No Name Team 大手子<LineBreak/>某个不想起名的人<LineBreak/>另一个不想起名的人
+                <LineBreak/><LineBreak/>
+                如果你提交的建议被采纳，或帮助了我们，
+                <LineBreak/>
+                你也可以被挂上来！
+                    </TextBlock>
+                </ScrollViewer>
+            </Expander>
+            <Expander Header="更新日志" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500">
+                <ScrollViewer MaxHeight="200" MinHeight="50" Width="450">
+                    <TextBlock HorizontalAlignment="Left">
+                        2025.12.14
+                        <LineBreak/>
+                        α0.0.4
+                        <LineBreak/>
+                        添加了关于界面的内容，仿照项目C1OS
+                        <LineBreak/>
+                        <LineBreak/>
+                        2025.12.13
+                        <LineBreak/>
+                        α0.0.3
+                        <LineBreak/>
+                        添加了背景相关功能
+                        <LineBreak/>
+                        添加了置顶功能
+                        <LineBreak/>
+                        设置开发1
+                        <LineBreak/>
+                        <LineBreak/>
+                        2025.12.12
+                        <LineBreak/>
+                        α0.0.2
+                        <LineBreak/>
+                        添加了基本的导航视图
+                        <LineBreak/>
+                        <LineBreak/>
+                        2025.12.7
+                        <LineBreak/>
+                        α0.0.1
+                        <LineBreak/>
+                        立项！开工！内测开始！
+                        </TextBlock>
+                </ScrollViewer>
+            </Expander>
+            <Expander Header="查看商标（声音警告！）" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500" Expanding="PlayVideo">
+                <MediaPlayerElement Source="ms-appx:///Assets/NoNameTeam.mp4"
+                AutoPlay="False" x:Name="VideoPlayer"/>
+            </Expander>
+            <StackPanel Orientation="Vertical" Margin="24" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <HyperlinkButton Content="检查更新" Click="CheckUpdate" Margin="12,0"/>
+                    <HyperlinkButton Content="访问Github" Click="OpenGithub" Margin="12,0"/>
+                    <HyperlinkButton Content="获取应用安装程序" Click="AddInstaller" Margin="12,0"/>
+                </StackPanel>
+                <Button Visibility="Collapsed" x:Name="DownloadUpdate" Click="DownloadUpdatePack" HorizontalAlignment="Center" Margin="12">
+                    <FontIcon Glyph="&#xE896;" />
+                </Button>
+                <Button Visibility="Collapsed" x:Name="DownloadOpener" Click="OpenUpdatePack" HorizontalAlignment="Center" Margin="12">
+                    <FontIcon Glyph="&#xEC50;" />
+                </Button>
+                <TextBlock FontSize="16" Margin="12" x:Name="UpdateFeedBack" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

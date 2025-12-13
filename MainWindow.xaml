@@ -21,13 +21,11 @@
     IsPaneToggleButtonVisible="True"
             Grid.Row="0"
             VerticalContentAlignment="Center"
-            
             x:Name="AppTitleBar"
             PaneToggleRequested="AppTitleBar_PaneToggleRequested">
             <TitleBar.IconSource>
                 <ImageIconSource ImageSource="/Assets/potato.ico" />
             </TitleBar.IconSource>
-
             <TitleBar.LeftHeader>
                 <ToggleButton Click="TopButton_Click" Background="Transparent">
                     <ToggleButton.Content>
@@ -45,28 +43,28 @@
        Margin="12,0"/>
         </StackPanel-->
         <NavigationView x:Name="NavView"
- Loaded="NavView_Loaded"
- ItemInvoked="NavView_ItemInvoked"
- IsSettingsVisible="True"
- IsBackEnabled="True"
- IsBackButtonVisible="Collapsed"
- AlwaysShowHeader="True"
- PaneDisplayMode="Auto"
+                        Loaded="NavView_Loaded"
+                        ItemInvoked="NavView_ItemInvoked"
+                        IsSettingsVisible="True"
+                        IsBackEnabled="True"
+                        IsBackButtonVisible="Collapsed"
+                        AlwaysShowHeader="True"
+                        PaneDisplayMode="Auto"
                         Margin="0"
                         Grid.Row="1"
                         IsPaneToggleButtonVisible="False"
- CompactModeThresholdWidth="0"
-                    BorderBrush="Transparent"
-                    BorderThickness="0" 
- ExpandedModeThresholdWidth="1000"
- SelectionFollowsFocus="Disabled"
- IsTabStop="False">
+                        CompactModeThresholdWidth="0"
+                        BorderBrush="Transparent"
+                        BorderThickness="0" 
+                        ExpandedModeThresholdWidth="1000"
+                        SelectionFollowsFocus="Disabled"
+                        
+                        IsTabStop="False">
             <NavigationView.Resources>
                 <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent" />
                 <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent" />
             </NavigationView.Resources>
             <NavigationView.MenuItems>
-
                 <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="启动">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEDB5;"/>
