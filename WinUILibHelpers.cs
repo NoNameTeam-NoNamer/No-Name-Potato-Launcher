@@ -66,7 +66,7 @@ namespace Scighost.WinUILib.Helpers
 
 
 
-        public bool TrySetMica(bool useMicaAlt = false, bool fallbackToAcrylic = true, bool alwaysActive = false)
+        public bool TrySetMica(bool useMicaAlt = false, bool fallbackToAcrylic = true, bool alwaysActive = false, Color? TintColor = null,float TintOpacity = 0.8f)
         {
             ResetBackdrop();
             if (MicaController.IsSupported())
@@ -91,9 +91,8 @@ namespace Scighost.WinUILib.Helpers
                 // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
                 micaController.AddSystemBackdropTarget(_window.As<ICompositionSupportsSystemBackdrop>());
                 micaController.SetSystemBackdropConfiguration(configurationSource);
-                micaController.TintColor = Color.FromArgb(255,0,100,100);
-                micaController.TintOpacity = 0.8f;
-
+                if (TintColor != null) { if (0 > TintOpacity || TintOpacity > 1) { TintOpacity = 0.8f; } 
+                    micaController.TintColor = (Color)TintColor; micaController.TintOpacity = TintOpacity; }
                 this.alwaysActive = alwaysActive;
                 return true; // succeeded
             }
@@ -111,7 +110,7 @@ namespace Scighost.WinUILib.Helpers
         /// <summary>
         /// type = null will use the default Acrylic type, true will use Thin Acrylic, false will use Base Acrylic.
         /// </summary>
-        public bool TrySetAcrylic(bool alwaysActive = false,bool? type = null)
+        public bool TrySetAcrylic(bool alwaysActive = false,bool? type = null,Color? TintColor = null, float TintOpacity = 0.8f)
         {
             ResetBackdrop();
             if (DesktopAcrylicController.IsSupported())
@@ -143,6 +142,8 @@ namespace Scighost.WinUILib.Helpers
                 // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
                 acrylicController.AddSystemBackdropTarget(_window.As<ICompositionSupportsSystemBackdrop>());
                 acrylicController.SetSystemBackdropConfiguration(configurationSource);
+                if(TintColor != null) { if (0 > TintOpacity || TintOpacity > 1) { TintOpacity = 0.8f; } 
+                    acrylicController.TintColor = (Color)TintColor; acrylicController.TintOpacity = TintOpacity; }
                 this.alwaysActive = alwaysActive;
                 return true; // succeeded
             }

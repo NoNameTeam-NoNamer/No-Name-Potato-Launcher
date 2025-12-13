@@ -9,8 +9,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <StackPanel>
-            
+        <StackPanel Orientation="Vertical" Spacing="12" Padding="12">
         </StackPanel>
     </Grid>
 </Page>

@@ -8,14 +8,42 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid>
-        <StackPanel x:Name="AppTitleBar" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  TitleBar  -->
+            <RowDefinition Height="*" />
+            <!--  NavigationView  -->
+        </Grid.RowDefinitions>
+        <TitleBar
+    Title="某个不想起名的土豆烘烤器"
+    Subtitle="内测版"
+    IsBackButtonVisible="False"
+    IsPaneToggleButtonVisible="True"
+            Grid.Row="0"
+            VerticalContentAlignment="Center"
+            
+            x:Name="AppTitleBar"
+            PaneToggleRequested="AppTitleBar_PaneToggleRequested">
+            <TitleBar.IconSource>
+                <ImageIconSource ImageSource="/Assets/potato.ico" />
+            </TitleBar.IconSource>
+
+            <TitleBar.LeftHeader>
+                <ToggleButton Click="TopButton_Click" Background="Transparent">
+                    <ToggleButton.Content>
+                        <FontIcon Glyph="&#xE718;" />
+                    </ToggleButton.Content>
+                </ToggleButton>
+            </TitleBar.LeftHeader>
+        </TitleBar>
+        <!--StackPanel x:Name="AppTitleBar" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Image Source="/Assets/potato.png" Height="24"/>
             <TextBlock x:Name="AppTitleTextBlock" Text="某个不想起名的土豆烘烤器"
        TextWrapping="NoWrap"
        Style="{StaticResource BodyStrongTextBlockStyle}"  
        VerticalAlignment="Center"
        Margin="12,0"/>
-        </StackPanel>
+        </StackPanel-->
         <NavigationView x:Name="NavView"
  Loaded="NavView_Loaded"
  ItemInvoked="NavView_ItemInvoked"
@@ -24,6 +52,9 @@
  IsBackButtonVisible="Collapsed"
  AlwaysShowHeader="True"
  PaneDisplayMode="Auto"
+                        Margin="0"
+                        Grid.Row="1"
+                        IsPaneToggleButtonVisible="False"
  CompactModeThresholdWidth="0"
                     BorderBrush="Transparent"
                     BorderThickness="0" 
