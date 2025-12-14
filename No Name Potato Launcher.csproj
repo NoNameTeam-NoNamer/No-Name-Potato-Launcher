@@ -90,7 +90,7 @@
     <ApplicationIcon>Assets\potato.ico</ApplicationIcon>
     <DefaultLanguage>zh-cn</DefaultLanguage>
     <Title>某个不想起名的土豆启动器</Title>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Authors>某个不想起名的人，另一个不想起名的人</Authors>
     <Company>No Name Team</Company>
     <Description>某个不想起名的土豆启动器，启动和管理您的MC服务器的捷径！\nNo Name Potato Launcher,A easier way to launch and manage your Minecraft server!</Description>

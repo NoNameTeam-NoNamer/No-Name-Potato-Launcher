@@ -9,7 +9,40 @@
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Grid>
 
-    </Grid>
+        <RelativePanel Margin="72,36" HorizontalAlignment="Center">
+            <Border Background="{ThemeResource  LayerOnMicaBaseAltFillColorDefault}" x:Name="ThemeBorder"
+BorderBrush="{ThemeResource  LayerOnMicaBaseAltFillColorDefaultBrush}" Margin="12" 
+                    CornerRadius="4">
+                
+                <StackPanel Orientation="Vertical" Spacing="12" Padding="12">
+                <StackPanel Orientation="Horizontal" Spacing="12" Padding="12">
+                    <TextBox x:Name="BackgroundPathInput" TextChanged="BackgroundPathInput_TextChanged"/>
+                    <Button Click="PickBackgroundFile" >
+                        <Button.Content>
+                            <FontIcon Glyph="&#xED25;"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <Slider
+     Header="背景透明度"
+     TickFrequency="0.2" x:Name="BackgroundOpacityInput"
+     TickPlacement="Outside"
+                    Minimum="0" Maximum="1" StepFrequency="0.01" ValueChanged="BackgroundOpacityInput_ValueChanged"
+     SnapsTo="StepValues" />
+            </StackPanel>
+            </Border>
+            <!--Border Background="{ThemeResource  LayerOnMicaBaseAltFillColorDefault}"
+BorderBrush="{ThemeResource  LayerOnMicaBaseAltFillColorDefaultBrush}" Margin="12" HorizontalAlignment="Right" 
+                   RelativePanel.AlignTopWith="ThemeBorder" CornerRadius="4" RelativePanel.RightOf="ThemeBorder">
+                <StackPanel Orientation="Vertical" Spacing="12" Padding="12">
+                    <StackPanel Orientation="Vertical" Spacing="12" Padding="12">
+                        <TextBox x:Name="TestTextBox1" TextChanged="TestTextBox_TextChanged" Height="600"/>
+
+                    </StackPanel>
+                    <NumberBox x:Name="TestNumberBox1" ValueChanged="TestNumberBox_ValueChanged" Minimum="0" Maximum="1"/>
+                </StackPanel>
+            </Border-->
+        </RelativePanel>
+
 </Page>

@@ -11,7 +11,7 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="36,24">
-            <TextBlock HorizontalAlignment="Center" Text="当前版本：α0.0.4" FontSize="24" Margin="6"/>
+            <TextBlock HorizontalAlignment="Center" Text="当前版本：α0.0.5" FontSize="24" Margin="6"/>
             <TextBlock HorizontalAlignment="Center">
         <Run FontFamily="楷体" Foreground="DarkGray">
         系统开发中，若发现BUG请及时反馈！</Run>
@@ -37,6 +37,10 @@
                 <ScrollViewer MaxHeight="200" MinHeight="50" Width="450">
                     <TextBlock HorizontalAlignment="Left">
                         2025.12.14
+                        <LineBreak/>
+                        α0.0.5
+                        <LineBreak/>
+                        支持自定义背景和透明度。
                         <LineBreak/>
                         α0.0.4
                         <LineBreak/>

@@ -7,21 +7,24 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using System;
-using System.Diagnostics;
-using System.Reflection;
-using System.Security.Principal;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Principal;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.ApplicationSettings;
 using WinRT.Interop;
-using Windows.UI;
+using No_Namer.SettingsRecord.Helpers;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -33,7 +36,7 @@ namespace No_Name_Potato_Launcher
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        private static MainWindow? current;
+        public static MainWindow? current;
 
         private readonly Microsoft.UI.Windowing.AppWindow m_AppWindow;
         private Microsoft.UI.Windowing.AppWindow GetAppWindowForCurrentWindow()
@@ -47,6 +50,7 @@ namespace No_Name_Potato_Launcher
             if (current is null) return IntPtr.Zero;
             return WindowNative.GetWindowHandle(current);
         }
+        private static ImageBrush backgroundImage;
         private readonly Scighost.WinUILib.Helpers.SystemBackdrop backdropHelper;
         public MainWindow()
         {
@@ -54,6 +58,9 @@ namespace No_Name_Potato_Launcher
             this.Title = "某个不想起名的土豆烘烤器";
             m_AppWindow = GetAppWindowForCurrentWindow();
             this.SetTitleBar(AppTitleBar);
+            OverlappedPresenter presenter = (OverlappedPresenter)AppWindow.Presenter;
+            presenter.PreferredMinimumWidth = 800;
+            presenter.PreferredMinimumHeight = 600;
             UpdateAdminUI();
             var titleBar = m_AppWindow.TitleBar;
             // Hide system title bar.
@@ -63,16 +70,44 @@ namespace No_Name_Potato_Launcher
             //NavView.Margin = new Thickness(0, titleBar.Height, 0, 0);
             //AppTitleBar.Margin = new Thickness(12, titleBar.Height / 4, 12, titleBar.Height / 4);
             current = this;
-            /*backgroundImage = ApplicationBackgroundImage;
-            _ = Windows.Storage.ApplicationData.Current.LocalSettings;
-            _ = Windows.Storage.ApplicationData.Current.LocalFolder;
-            ReadLD();
+            backgroundImage = ApplicationBackgroundImage;
+            //_ = Windows.Storage.ApplicationData.Current.LocalSettings;
+            //_ = Windows.Storage.ApplicationData.Current.LocalFolder;
+            //ReadLD();
             ReadBG();
-            ReadBGOpacity();*/
             backdropHelper = new Scighost.WinUILib.Helpers.SystemBackdrop(this);
             backdropHelper.TrySetMica(useMicaAlt: false, TintColor: Color.FromArgb(128, 187, 187, 238),TintOpacity:0.5f);
         }
-        //private static ImageBrush backgroundImage;
+
+        public static async void ReadBG()
+        {
+            try
+            {
+                string file = SettingsStore.ReadSetting<string>(itemName: "BackgroundLocation");
+                double opacity = SettingsStore.ReadSetting<double>(itemName: "BackgroundOpacity");
+                // Data is contained in file
+                if (file != null)
+                {
+                    StorageFile file1 = await StorageFile.GetFileFromPathAsync(file);
+                    BitmapImage bitmapImage = new();
+                    FileRandomAccessStream stream = (FileRandomAccessStream)await file1.OpenAsync(FileAccessMode.Read);
+                    await bitmapImage.SetSourceAsync(stream);
+                    MainWindow.backgroundImage.ImageSource = bitmapImage;
+                    MainWindow.backgroundImage.Opacity = opacity;
+                }
+                else
+                {
+                    MainWindow.backgroundImage.ImageSource = null;
+                    MainWindow.backgroundImage.Opacity = 0.5;
+                }
+
+            }
+            catch (Exception)
+            {
+                MainWindow.backgroundImage.ImageSource = null;
+                MainWindow.backgroundImage.Opacity = 0.5;
+            }
+        }
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
