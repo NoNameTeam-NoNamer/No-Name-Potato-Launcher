@@ -36,7 +36,9 @@ namespace No_Name_Potato_Launcher
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+#pragma warning disable CA2211 // 非常量字段应当不可见
         public static MainWindow? current;
+#pragma warning restore CA2211 // 非常量字段应当不可见
 
         private readonly Microsoft.UI.Windowing.AppWindow m_AppWindow;
         private Microsoft.UI.Windowing.AppWindow GetAppWindowForCurrentWindow()
@@ -158,7 +160,7 @@ namespace No_Name_Potato_Launcher
             // Only navigate if the selected page isn't currently loaded.
             if (navPageType is not null && !Type.Equals(preNavPageType, navPageType))
             {
-                ContentFrame.Navigate(navPageType, null, new DrillInNavigationTransitionInfo());
+                ContentFrame.Navigate(navPageType,null,new DrillInNavigationTransitionInfo());
             }
         }
 

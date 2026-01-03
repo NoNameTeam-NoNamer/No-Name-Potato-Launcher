@@ -170,7 +170,7 @@ namespace No_Namer.SettingsRecord.Helpers
         // ReadSetting returns the raw JSON string of the value, or null if not present.
         public static string? ReadSetting(string fileLocation = "./settings.json", string itemName = null)
         {
-            ArgumentNullException.ThrowIfNull(itemName);
+            if (itemName is null) { return null;}
 
             var dict = Load(fileLocation);
             if (!dict.TryGetValue(itemName, out var elem))
@@ -182,7 +182,7 @@ namespace No_Namer.SettingsRecord.Helpers
         // ReadSetting<T> will deserialize the stored JSON value back to the requested type T.
         public static T? ReadSetting<T>(string fileLocation = "./settings.json", string itemName = null)
         {
-            ArgumentNullException.ThrowIfNull(itemName);
+            if (itemName is null) { return default;}
 
             var dict = Load(fileLocation);
             if (!dict.TryGetValue(itemName, out var elem))
@@ -196,6 +196,31 @@ namespace No_Namer.SettingsRecord.Helpers
             {
                 Debug.WriteLine($"反序列化设置失败 '{itemName}': {ex}");
                 return default;
+            }
+        }
+
+        // RemoveSetting removes the specified item from the settings file.
+        public static void RemoveSetting(string fileLocation = "./settings.json", string itemName = null)
+        {
+            ArgumentNullException.ThrowIfNull(itemName);
+            try
+            {
+                var dict = Load(fileLocation);
+                Debug.WriteLine($"尝试移除设置项: {itemName}");
+
+                if (dict.Remove(itemName))
+                {
+                    Debug.WriteLine($"成功移除设置项: {itemName}");
+                    Save(fileLocation, dict);
+                }
+                else
+                {
+                    Debug.WriteLine($"设置项不存在: {itemName}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"移除设置失败 '{itemName}': {ex}");
             }
         }
 
@@ -222,6 +247,54 @@ namespace No_Namer.SettingsRecord.Helpers
             Save(fileLocation, dict);
         }
 
+        // 新增：获取所有设置键名
+        public static List<string> GetAllSettingKeys(string fileLocation = "./settings.json")
+        {
+            try
+            {
+                var dict = Load(fileLocation);
+                return [.. dict.Keys];
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"获取所有设置键名失败: {ex}");
+                return [];
+            }
+        }
+
+        // 新增：检查设置项是否存在
+        public static bool SettingExists(string fileLocation = "./settings.json", string itemName = null)
+        {
+            if (itemName is null)
+                return false;
+            try
+            {
+                var dict = Load(fileLocation);
+                return dict.ContainsKey(itemName);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"检查设置项存在失败: {ex}");
+                return false;
+            }
+        }
+
+        // 新增：清空所有设置
+        public static void ClearAllSettings(string fileLocation = "./settings.json")
+        {
+            try
+            {
+                Debug.WriteLine($"清空所有设置");
+                var dict = new Dictionary<string, JsonElement>(StringComparer.OrdinalIgnoreCase);
+                Save(fileLocation, dict);
+                Debug.WriteLine($"所有设置已清空");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"清空所有设置失败: {ex}");
+            }
+        }
+
         // 调试方法：获取当前 LocalFolder 路径
         public static string GetLocalFolderPath()
         {
@@ -236,7 +309,7 @@ namespace No_Namer.SettingsRecord.Helpers
             }
         }
 
-        // 调试方法：打开配置文件所在目录（使用 /select 参数）
+        // 调试方法：打开配置文件所在目录
         public static async void OpenSettingsDirectory(string fileLocation = "./settings.json",bool createWarningFile = false)
         {
             try

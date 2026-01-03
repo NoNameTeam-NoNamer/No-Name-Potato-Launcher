@@ -68,22 +68,22 @@
                 </NavigationViewItem>
                 <NavigationViewItemSeparator/>
                 <NavigationViewItemHeader Content="管理"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="AllApps" Content="插件"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="数据包">
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.PluginPage" Icon="AllApps" Content="插件"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.DataPackPage" Content="数据包">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xF012;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItemSeparator/>
                 <NavigationViewItemHeader Content="编辑器"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="World" Content="多世界"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Icon="ViewAll" Content="容器菜单"/>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="权限管理">
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.WorldPage" Icon="World" Content="多世界"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.PanelPage" Icon="ViewAll" Content="菜单"/>
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.PermissionPage" Content="权限管理">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE902;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="No_Name_Potato_Launcher.StartPage" Content="彩字">
+                <NavigationViewItem Tag="No_Name_Potato_Launcher.ColorTextPage" Content="彩字">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE790;"/>
                     </NavigationViewItem.Icon>

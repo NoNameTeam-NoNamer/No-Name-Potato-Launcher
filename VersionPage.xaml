@@ -11,7 +11,7 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="36,24">
-            <TextBlock HorizontalAlignment="Center" Text="当前版本：α0.0.5" FontSize="24" Margin="6"/>
+            <TextBlock HorizontalAlignment="Center" Text="当前版本：β0.1.0" FontSize="24" Margin="6"/>
             <TextBlock HorizontalAlignment="Center">
         <Run FontFamily="楷体" Foreground="DarkGray">
         系统开发中，若发现BUG请及时反馈！</Run>
@@ -36,6 +36,15 @@
             <Expander Header="更新日志" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500">
                 <ScrollViewer MaxHeight="200" MinHeight="50" Width="450">
                     <TextBlock HorizontalAlignment="Left">
+                        2025.12.31-2026.1.3
+                        <LineBreak/>
+                        β0.1.0
+                        <LineBreak/>
+                        彩字功能上线了！新年新工具，安排！
+                        <LineBreak/>
+                        优化部分代码，修复部分BUG。
+                        <LineBreak/>
+                        <LineBreak/>
                         2025.12.14
                         <LineBreak/>
                         α0.0.5

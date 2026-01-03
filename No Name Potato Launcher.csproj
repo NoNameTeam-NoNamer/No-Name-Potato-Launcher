@@ -14,9 +14,16 @@
     <Nullable>annotations</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="ColorTextPage.xaml" />
+    <None Remove="ColorTextWindow.xaml" />
+    <None Remove="DataPackPage.xaml" />
+    <None Remove="PanelPage.xaml" />
+    <None Remove="PermissionPage.xaml" />
+    <None Remove="PluginPage.xaml" />
     <None Remove="SettingsPage.xaml" />
     <None Remove="StartPage.xaml" />
     <None Remove="VersionPage.xaml" />
+    <None Remove="WorldPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +62,27 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <Page Update="ColorTextWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="ColorTextPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="PermissionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="PanelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="WorldPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="DataPackPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="PluginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="VersionPage.xaml">
@@ -90,13 +118,14 @@
     <ApplicationIcon>Assets\potato.ico</ApplicationIcon>
     <DefaultLanguage>zh-cn</DefaultLanguage>
     <Title>某个不想起名的土豆启动器</Title>
-    <Version>0.0.5</Version>
+    <Version>0.1.0</Version>
     <Authors>某个不想起名的人，另一个不想起名的人</Authors>
     <Company>No Name Team</Company>
     <Description>某个不想起名的土豆启动器，启动和管理您的MC服务器的捷径！\nNo Name Potato Launcher,A easier way to launch and manage your Minecraft server!</Description>
     <Copyright>©No Name Team 2025,all rights reserved.</Copyright>
     <PackageIcon>StoreLogo.scale-400.png</PackageIcon>
     <NeutralLanguage>zh-CN</NeutralLanguage>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <WarningLevel>9999</WarningLevel>
