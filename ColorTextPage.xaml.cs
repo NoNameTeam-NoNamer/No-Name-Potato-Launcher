@@ -243,64 +243,6 @@ public sealed partial class ColorTextPage : Page
     {
         new ColorTextWindow().Activate();
     }
-    /*
-    // 获取线性渐变画笔在指定位置的颜色
-    public static Color GetColorAtPosition(LinearGradientBrush brush, double position)
-    {
-        if (brush == null || brush.GradientStops.Count == 0)
-            return Colors.Transparent;
-
-        // 确保位置在 [0,1] 范围内
-        position = Math.Clamp(position, 0.0, 1.0);
-
-        var gradientStops = brush.GradientStops.OrderBy(g => g.Offset).ToList();
-
-        // 如果位置小于第一个偏移量，返回第一个颜色
-        if (position <= gradientStops[0].Offset)
-            return gradientStops[0].Color;
-
-        // 如果位置大于最后一个偏移量，返回最后一个颜色
-        if (position >= gradientStops.Last().Offset)
-            return gradientStops.Last().Color;
-
-        // 找到位置所在的两个渐变点
-        Microsoft.UI.Xaml.Media.GradientStop lowerStop = null;
-        Microsoft.UI.Xaml.Media.GradientStop upperStop = null;
-
-        for (int i = 0; i < gradientStops.Count - 1; i++)
-        {
-            if (position >= gradientStops[i].Offset &&
-                position <= gradientStops[i + 1].Offset)
-            {
-                lowerStop = gradientStops[i];
-                upperStop = gradientStops[i + 1];
-                break;
-            }
-        }
-
-        if (lowerStop == null || upperStop == null)
-            return Colors.Transparent;
-
-        // 计算插值比例
-        double range = upperStop.Offset - lowerStop.Offset;
-        double ratio = (position - lowerStop.Offset) / range;
-
-        // 对每个颜色通道进行线性插值
-        return InterpolateColor(lowerStop.Color, upperStop.Color, ratio);
-    }
-    // 获取颜色中的线性插值方法
-    private static Color InterpolateColor(Color color1, Color color2, double ratio)
-    {
-        ratio = Math.Clamp(ratio, 0.0, 1.0);
-
-        byte a = (byte)(color1.A + (color2.A - color1.A) * ratio);
-        byte r = (byte)(color1.R + (color2.R - color1.R) * ratio);
-        byte g = (byte)(color1.G + (color2.G - color1.G) * ratio);
-        byte b = (byte)(color1.B + (color2.B - color1.B) * ratio);
-
-        return Color.FromArgb(a, r, g, b);
-    }
-    */
     // 修改后的方法（线程安全）
     public static Color GetColorAtPosition(List<(Color Color, double Offset)> gradientData, double position)
     {
@@ -577,6 +519,8 @@ public sealed partial class ColorTextPage : Page
     private void ChangeColor(ColorPicker sender, ColorChangedEventArgs args)
     {
         if (ThemeEditor.SelectedItem == null) return;
+        StopValueEditor.Foreground = new SolidColorBrush(args.NewColor);
+        StopValueEditor.Background = StopValueEditor.Foreground;
         int p = ThemeEditor.SelectedIndex;
         currentTheme.Stops[ThemeEditor.SelectedIndex].Color = args.NewColor;
         SettingsStore.WriteSetting(fileLocation: "./ColorThemes.json", itemName: currentTheme.name, itemData: currentTheme);

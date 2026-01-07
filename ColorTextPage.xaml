@@ -27,7 +27,7 @@
     </Page.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Vertical" x:Name="UIPanel">
-            <TextBlock Text="就绪" x:Name="StatusTextBlock" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6"/>
+            <TextBlock x:Name="StatusTextBlock" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6"/>
             <TextBox x:Name="InputBox" PlaceholderText="彩字文本"
                      HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="600"
                      AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="225"/>
@@ -97,10 +97,10 @@
                                                     <FlyoutBase.AttachedFlyout>
                                                         <Flyout Opening="InitialEditColorPanel">
                                                             <StackPanel Orientation="Vertical">
+                                                                <Slider Minimum="0" Maximum="1" StepFrequency="0.01" SmallChange="0.0001" TickFrequency="0.1" Margin="3" Width="300" ValueChanged="ChangeValue"
+                                                                        TickPlacement="Outside" HorizontalAlignment="Center" x:Name="StopValueEditor" Header="位置"/>
                                                                 <ColorPicker ColorSpectrumShape="Box" IsMoreButtonVisible="True" IsColorSliderVisible="True" IsColorChannelTextInputVisible="True" ColorChanged="ChangeColor"
                                                                     IsHexInputVisible="True" IsAlphaEnabled="True" IsAlphaSliderVisible="True" IsAlphaTextInputVisible="True" x:Name="StopColorEditor" Margin="3"/>
-                                                                <Slider Minimum="0" Maximum="1" StepFrequency="0.01" SmallChange="0.0001" TickFrequency="0.1" Margin="3" Width="300" ValueChanged="ChangeValue"
-                                                                        TickPlacement="Outside" HorizontalAlignment="Center" x:Name="StopValueEditor"/>
                                                             </StackPanel>
                                                         </Flyout>
                                                     </FlyoutBase.AttachedFlyout>

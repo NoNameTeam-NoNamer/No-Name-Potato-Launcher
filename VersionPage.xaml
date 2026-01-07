@@ -11,7 +11,7 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" Margin="36,24">
-            <TextBlock HorizontalAlignment="Center" Text="当前版本：β0.1.0" FontSize="24" Margin="6"/>
+            <TextBlock HorizontalAlignment="Center" Text="当前版本：β0.1.1" FontSize="24" Margin="6"/>
             <TextBlock HorizontalAlignment="Center">
         <Run FontFamily="楷体" Foreground="DarkGray">
         系统开发中，若发现BUG请及时反馈！</Run>
@@ -19,30 +19,40 @@
             </TextBlock>
             <TextBlock HorizontalAlignment="Center">
         <Run FontFamily="楷体" Foreground="DarkGray">
-        ©No Name Team 2025,all rights reserved.</Run>
+        ©No Name Team 2026,all rights reserved.</Run>
         <LineBreak/>
             </TextBlock>
-            <Expander Header="开发人员和鸣谢名单" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500">
+            <Expander Header="开发人员" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500">
                 <ScrollViewer MaxHeight="200" MinHeight="50" Width="450">
                     <TextBlock HorizontalAlignment="Center" TextAlignment="Center">
-                No Name Team 大手子<LineBreak/>某个不想起名的人<LineBreak/>另一个不想起名的人
-                <LineBreak/><LineBreak/>
-                如果你提交的建议被采纳，或帮助了我们，
-                <LineBreak/>
-                你也可以被挂上来！
+                        No Name Team 大手子<LineBreak/>某个不想起名的人（No Namer）<LineBreak/>另一个不想起名的人（Another No Namer）
+                        <LineBreak/>
+                        如果你提交的建议被采纳，或帮助了我们，
+                        <LineBreak/>
+                        你也可以被挂上来！
                     </TextBlock>
                 </ScrollViewer>
             </Expander>
             <Expander Header="更新日志" IsExpanded="False" ExpandDirection="Down" HorizontalAlignment="Center" MinWidth="500">
                 <ScrollViewer MaxHeight="200" MinHeight="50" Width="450">
                     <TextBlock HorizontalAlignment="Left">
+                        2026.1.7
+                        <LineBreak/>
+                        β0.1.0
+                        <LineBreak/>
+                        修复了彩字颜色选择时更改颜色位置条颜色不变的BUG。
+                        <LineBreak/>
+                        修复了彩字颜色位置条没有标题的BUG。更改了其位置。
+                        <LineBreak/>
+                        优化了部分代码，修复了部分BUG。
+                        <LineBreak/>
                         2025.12.31-2026.1.3
                         <LineBreak/>
                         β0.1.0
                         <LineBreak/>
                         彩字功能上线了！新年新工具，安排！
                         <LineBreak/>
-                        优化部分代码，修复部分BUG。
+                        优化了部分代码，修复了部分BUG。
                         <LineBreak/>
                         <LineBreak/>
                         2025.12.14
@@ -53,25 +63,25 @@
                         <LineBreak/>
                         α0.0.4
                         <LineBreak/>
-                        添加了关于界面的内容，仿照项目C1OS
+                        添加了关于界面的内容，仿照项目C1OS。
                         <LineBreak/>
                         <LineBreak/>
                         2025.12.13
                         <LineBreak/>
                         α0.0.3
                         <LineBreak/>
-                        添加了背景相关功能
+                        添加了背景相关功能。
                         <LineBreak/>
-                        添加了置顶功能
+                        添加了置顶功能。
                         <LineBreak/>
-                        设置开发1
+                        设置开发1。
                         <LineBreak/>
                         <LineBreak/>
                         2025.12.12
                         <LineBreak/>
                         α0.0.2
                         <LineBreak/>
-                        添加了基本的导航视图
+                        添加了基本的导航视图。
                         <LineBreak/>
                         <LineBreak/>
                         2025.12.7
