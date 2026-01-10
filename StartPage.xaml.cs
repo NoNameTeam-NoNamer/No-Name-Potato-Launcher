@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -13,6 +6,17 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using No_Namer.SettingsRecord.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -36,7 +40,66 @@ public sealed partial class StartPage : Page
         
     }
 
-    
+    private void StartAll(SplitButton sender, SplitButtonClickEventArgs args)
+    {
+        StartPotato(null, null);
+        StartFormat(null, null);
+        StartGame(null, null);
+    }
+
+    static async void RunProgress() 
+    {
+        try
+        {
+            var filePicker = new FileOpenPicker();
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(MainWindow.current);
+            WinRT.Interop.InitializeWithWindow.Initialize(filePicker, hwnd);
+            filePicker.FileTypeFilter.Add("*");
+            var file = await filePicker.PickSingleFileAsync();
+            if (file != null)
+            {
+                var processStartInfo = new ProcessStartInfo
+                {
+                    FileName = file.Path,
+                    //Arguments = arguments,
+                    UseShellExecute = true, // 使用Shell执行，可以打开关联程序
+                    CreateNoWindow = false, // 显示窗口
+                    WindowStyle = ProcessWindowStyle.Normal // 正常窗口
+                };
+
+                using (var process = Process.Start(processStartInfo))
+                {
+                    if (process != null)
+                    {
+                        // 可选：等待进程退出
+                        await process.WaitForExitAsync();
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"运行程序失败: {ex.Message}");
+            throw;
+        }
+    }
+
+    private async void StartPotato(object sender, RoutedEventArgs e)
+    {
+        RunProgress();
+    }
+
+    private void StartFormat(object sender, RoutedEventArgs e)
+    {
+        RunProgress();
+    }
+
+    private void StartGame(object sender, RoutedEventArgs e)
+    {
+        RunProgress();
+    }
+
+
     /*
 private void InitializeTerminals()
 {

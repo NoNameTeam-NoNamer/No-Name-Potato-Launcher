@@ -9,7 +9,16 @@
     NavigationCacheMode="Disabled"
     mc:Ignorable="d">
 
-    <Grid>
-        
-    </Grid>
+    <SplitButton x:Name="StartButton" Click="StartAll" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <FontIcon Glyph="&#xE768;" />
+        <SplitButton.Flyout>
+            <Flyout>
+                <StackPanel Spacing="6">
+                    <Button Content="烘烤土豆" Click="StartPotato"/>
+                    <Button Content="启动映射" Click="StartFormat"/>
+                    <Button Content="开启动器" Click="StartGame"/>
+                </StackPanel>
+            </Flyout>
+        </SplitButton.Flyout>
+    </SplitButton>
 </Page>

@@ -27,10 +27,22 @@
     </Page.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Vertical" x:Name="UIPanel">
-            <TextBlock x:Name="StatusTextBlock" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6"/>
+            <TextBlock x:Name="StatusTextBlock" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <AddDeleteThemeTransition/>
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+            </TextBlock>
             <TextBox x:Name="InputBox" PlaceholderText="彩字文本"
                      HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="600"
-                     AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="225"/>
+                     AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="225">
+                <TextBox.Transitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </TextBox.Transitions>
+            </TextBox>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Width="525" Height="30" Margin="3,12" x:Name="PreviewButton">
                     <Button.Background>
